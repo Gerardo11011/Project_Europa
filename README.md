@@ -1,6 +1,9 @@
 # Final Web
 
-A web page using mondoDB, javascript, typescript and nodeJS
+A web page using mondoDB, javascript, typescript and nodeJS.
+
+**git clone command**
+`git clone https://github.com/Gerardo11011/Project_Europa.git`
 
 ## Instructions
 
