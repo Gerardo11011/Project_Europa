@@ -8,7 +8,7 @@ var article = require ('../models/article')
 
 
 router.get('/', function (req, res, next) {
-  article.find({'tema': 'Fisica'}, function (err, article){
+article.find({'tema': {$in : ["physics", "Physics", "fisica", "Fisica"]}}, function (err, article){
 
     if(err){
        console.log(err);
