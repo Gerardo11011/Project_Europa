@@ -1,0 +1,14 @@
+extends layout.pug
+block content
+  form(method='POST', action='/agregarFav')
+    #form-group
+      label ID User:
+      input.form-control(name='usuarioID', type='text', value= user.id)
+      br
+    #form-group
+      label ID Article:
+      input.form-control(name='articleID', type='text')
+      br
+    input.btn.btn-success(type='submit', value='submit')
+    a.btn.btn-primary(href='/index') Regresar
+    

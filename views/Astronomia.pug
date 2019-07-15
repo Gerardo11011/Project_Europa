@@ -1,0 +1,7 @@
+extends layout.pug
+block content
+  ul.list-group
+    each astronomia in articles
+      li.list-group-item
+        a(href='Astronomia/'+astronomia._id)=astronomia.titulo
+      

@@ -1,0 +1,6 @@
+extends layout.pug
+block content
+  ul.list-group
+    each matematica in articles
+      li.list-group-item
+        a(href='Matematica/'+matematica._id)=matematica.titulo

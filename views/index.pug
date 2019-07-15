@@ -1,0 +1,11 @@
+extends layout.pug
+block content
+  ul
+    each index in article
+      h3= index.titulo
+      h5= index.cuerpo
+      h5= index.autor
+      h5= index.bibliografia
+      h5= index.tema
+      br
+  

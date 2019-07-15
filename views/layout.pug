@@ -1,0 +1,70 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet' href='/style.css')
+    title Derivando El cielo
+    link(rel='icon', href='/Quantumfracture.ico')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    script(rc="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src='/js/main.js')
+  body
+   h1 Derivando el cielo
+   // <img src="Espacio.jpg" alt="Universo" style="width:1080px;height:400px;">
+   nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+    a.navbar-brand(href='http://localhost:8080/index') Home
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-  expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarsExampleDefault.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='http://localhost:8080/Fisica') 
+            | Physics
+            span.sr-only (current)
+        li.nav-item.active
+          a.nav-link(href='http://localhost:8080/Matematica')
+            | Math
+            span.sr-only (current)
+        li.nav-item.active
+          a.nav-link(href='http://localhost:8080/Astronomia') 
+            | Astronomy
+            span.sr-only (current)
+        li.nav-item.active
+          a.nav-link(href='http://localhost:8080/variados') 
+            | Other Topics
+            span.sr-only (current)
+        if user
+          li.nav-item.active
+            a.nav-link(href='http://localhost:8080/Favoritos') 
+              | Favorites
+              span.sr-only (current)
+          li.nav-item.active
+            a.nav-link(href='http://localhost:8080/agregarFav') 
+              | Add Favorites
+              span.sr-only (current)      
+        if user
+          if user.role == 'admin'
+            li.nav-item.active
+              a.nav-link(href='http://localhost:8080/Agregar') 
+                | Add news
+                span.sr-only (current)
+      ul.nav.navbar-nav
+        if user
+          li.nav-item.active
+            a.nav-link(href='http://localhost:8080/users/logout') Logout
+        else
+          li.nav-item.active
+            a.nav-link(href='http://localhost:8080/users/registrar') Register
+          li.nav-item.active
+            a.nav-link(href='http://localhost:8080/users/login') Login
+  .container
+    != messages('message', locals)
+    if errors
+      each error, i in errors
+        div(class="alert alert-danger") #{error.msg}
+  block content    
+   h2 #{title}
+   //script(src='../bower_components/jquery/dist/jquery.js')

@@ -1,0 +1,29 @@
+extends layout.pug
+block content
+  form(method='POST', action='/users/registrar')
+    #form-group
+      label Nombre:
+      input.form-control(name='nombre', type='text')
+      br
+    #form-group
+      label Email:
+      input.form-control(name='correo', type='text')
+      br
+    #form-group
+      label Username:
+      input.form-control(name='username', type='text')
+      br
+    #form-group
+      label Password:
+      input.form-control(name='contraseña', type='password')
+      br
+    #form-group
+      label Confirmar:
+      input.form-control(name='contrarepe', type='password')
+      br
+    #form-group
+      label Role:
+      input.form-control(name='role', type='text', value='user')
+      br
+    input.btn.btn-success(type='submit', value='submit')
+    a.btn.btn-primary(href='/index') Regresar
