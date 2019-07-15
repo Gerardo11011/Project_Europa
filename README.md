@@ -16,7 +16,7 @@ A web page using mondoDB, javascript, typescript and nodeJS
 
 ## importan information
 
-##### Themes
+#### Themes
 The website requests a topic when creating a new story and these are divided into 3 main themes
 * Physics/physics
 * Astronomy/astronomy
