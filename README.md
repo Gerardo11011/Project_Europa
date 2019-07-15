@@ -2,11 +2,28 @@
 
 A web page using mondoDB, javascript, typescript and nodeJS
 
-Instructions
+## Instructions
 
-1. create a mongo data base with the name of *webDB*:
+1. use the command `npm install` to install all the local dependencies
+
+2. create a mongo data base with the name of *webDB*:
 `use webDB`
 
-2. initialize the mondo daemon with the command `mongod`
+3. initialize the mondo daemon with the command `mongod`
 
-3. initialize the server with the command `npm run dev`
+4. initialize the server with the command `npm run dev`
+
+
+## importan information
+
+##### Themes
+The website requests a topic when creating a new story and these are divided into 3 main themes
+* Physics/physics
+* Astronomy/astronomy
+* Math/math
+
+*The theme can be written in spanish also*
+
+#### Users
+The users are divided into two main ones:
+*Users and administrators*, at the time of completing the registration form, to register as an administrator, it is necessary to write in the admin role box, if you get to write any other information the user will be normal user by default
