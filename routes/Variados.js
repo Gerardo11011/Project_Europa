@@ -6,7 +6,7 @@ var db = mongoose.connection;
 var article = require ('../models/article')
 
 router.get('/', function (req, res, next) {
-  article.find({'tema': {$nin : ["Fisica", "Matematica", "Astronomia"]}}, function (err, article){
+  article.find({'tema': {$nin : ["Astronomy", "astronomy", "Astronomia", "astronomia","Math", "math", "Matematicas", "matematicas","physics", "Physics", "fisica", "Fisica"]}}, function (err, article){
 
     if(err){
        console.log(err);
