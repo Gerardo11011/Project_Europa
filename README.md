@@ -30,4 +30,7 @@ The website requests a topic when creating a new story and these are divided int
 
 #### Users
 The users are divided into two main ones:
-*Users and administrators*, at the time of completing the registration form, to register as an administrator, it is necessary to write in the admin role box, if you get to write any other information the user will be normal user by default
+* admin
+* user
+
+To complete the registration form it is necessary to write in the admin role box, if you get to write any other information the user will be normal user by default
