@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/webDB', {useNewUrlParser: true});
 var db = mongoose.connection;
 var article = require ('../models/article')
+const funciones = require('../src/handler');
 
 router.get('/:id', function (req, res, next){
   article.findById(req.params.id, function (err, article) {
@@ -14,37 +15,11 @@ router.get('/:id', function (req, res, next){
 });
 
 router.post('/:id', function (req, res, next){
-  let art = {}
-  art.titulo = req.body.titulo
-  art.tema = req.body.tema
-  art.autor = req.body.autor
-  art.cuerpo = req.body.cuerpo
-  art.bibliografia = req.body.bibliografia
-
-
-  let query = {_id:req.params.id}
-
-  article.update(query, art, function(err){
-    if (err) {
-      console.log(err);
-      return;
-    }
-    else {
-      res.redirect('/index')
-    }
-  });
+  funciones.editar(req,res,next);
 });
 
 router.delete('/:id', function (req, res, next) {
-  let query= {_id:req.params.id}
-  article.remove(query,function(err){
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send('Succes');
-    }
-  });
+  funciones.delete(req,res,next);
 });
 
 module.exports = router;

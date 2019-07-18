@@ -1,6 +1,7 @@
 "use strict";
 const express = require('express');
-const app = express();
+import https = require('https');
+  const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
@@ -8,21 +9,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var methodOverride = require('method-override');
 app.use(methodOverride('_method'));
-var logger = require('morgan');
+var morgan = require('morgan');
 var mongoose = require('mongoose');
 const expressValidator = require('express-validator');
 var session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+
+
+//Conections to database and database models
 let Article = require('../models/article');
 let Users = require('../models/user');
 const config = require('../config/database');
 mongoose.connect(config.database, { useNewUrlParser: true });
 var db = mongoose.connection;
+var PORT = 8080;
+
+//directory path to views and public
 app.use(express.static(path.join(__dirname, '/../public')));
 app.set('views', path.join(__dirname, '/../views'));
 app.set('view engine', 'pug');
-app.use(logger('dev'));
+app.use(morgan('dev'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 //error handle and check if conection was made
@@ -31,6 +38,8 @@ db.once('open', function () {
     // we're connected!
     console.log('mongodb CONNECTED');
 });
+
+
 //express session middleware
 app.use(session({
     secret: 'keyboard cat',
@@ -75,6 +84,13 @@ app.get('/', function (req:any, res:any) {
         }
     });
 });
+
+//https
+
+
+
+
+
 //Route para la pagina index
 var index = require('../routes/index');
 app.use('/index', index);
@@ -114,4 +130,5 @@ var favo = require('../routes/Favoritos');
 app.use('/Favoritos', favo);
 var annadir = require('../routes/agregarFav');
 app.use('/agregarFav', annadir);
-app.listen(8080);
+
+app.listen(PORT);

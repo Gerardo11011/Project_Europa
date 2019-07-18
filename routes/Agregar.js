@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/webDB', {useNewUrlParser: true});
 var db = mongoose.connection;
 var article = require ('../models/article')
-
+const funciones = require('../src/handler');
 
 
 router.get('/', function (req, res, next) {
@@ -13,37 +13,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next){
-  req.checkBody('titulo','Title is required').notEmpty();
-  req.checkBody('autor','Author is required').notEmpty();
-  req.checkBody('cuerpo','Body is required').notEmpty();
-  req.checkBody('bibliografia','Bibliography is required').notEmpty();
-  req.checkBody('tema','theme is required').notEmpty();
-
-
-   let errors = req.validationErrors();
-
-   if(errors){
-     res.render('Agregar', {title : 'Agregar', logeado: false, errors: errors})
-   }
-   else {
-     let art = new article();
-     art.titulo = req.body.titulo;
-     art.tema = req.body.tema;
-     art.autor = req.body.autor;
-     art.cuerpo = req.body.cuerpo;
-     art.bibliografia = req.body.bibliografia;
-
-     art.save(function(err){
-       if(err){
-         console.log(err);
-         return;
-       }
-       else {
-         req.flash('success','Articulo añadido');
-         res.redirect('/');
-       }
-     });
-  }
+  funciones.agregarNoticia(req,res,next);
 });
 
 
