@@ -1,24 +1,26 @@
 extends layout.pug
 block content
   form(method='POST', action='/Agregar')
-    #form-group
-      label Title:
-      input.form-control(name='titulo', type='text')
-      br
-    #form-group
-      label Theme:
-      input.form-control(name='tema', type='text')
-      br
-    #form-group
-      label Author:
-      input.form-control(name='autor', type='text')
-      br
-    #form-group
-      label Body:
-      textarea.form-control(name='cuerpo', type='text')
-      br
-    #form-group
-      label Bibliography:
-      input.form-control(name='bibliografia', type='text')
-      br
-    input.btn.btn-success(type='submit', value='submit')
+    div.container
+      #form-group
+        label Title:
+        input.form-control(name='titulo', type='text')
+        br
+      #form-group
+        label Theme:
+        input.form-control(name='tema', type='text')
+        br
+      #form-group
+        label Author:
+        input.form-control(name='autor', type='text')
+        br
+      #form-group
+        label Body:
+        textarea.form-control(name='cuerpo', type='text')
+        br
+      #form-group
+        label Bibliography:
+        input.form-control(name='bibliografia', type='text')
+        br
+      div.boton
+        input.btn.btn-success(type='submit', value='Submit')

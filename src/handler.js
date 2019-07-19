@@ -139,5 +139,9 @@ module.exports = {
         res.redirect('/index')
       }
     });
+  },
+
+  sayHelloInEnglish: function(){
+    return 'hello';
   }
 };

@@ -1,13 +1,15 @@
 extends layout
 
 block content
-  h1= article.titulo
-  h5 Written by #{article.autor}
-  p= "Article ID: "+article._id
-  br
-  br
-  p= article.cuerpo
-  if user
-    if user.role == 'admin'
-      a.btn.btn-info(href='/edit/'+article._id) Edit
-  a.btn.btn-primary(href='http://localhost:8080/index') Back
+  div.container
+    h1= article.titulo
+    h5 Written by #{article.autor}
+    p= "Article ID: "+article._id
+    br
+    p= article.cuerpo
+    if user
+      if user.role == 'admin'
+        div.boton
+          a.btn.btn-info(href='/edit/'+article._id) Edit
+    div.boton
+      a.btn.btn-primary(href='http://localhost:8080/index') Home

@@ -2,7 +2,8 @@ extends layout
 
 block content
 
-  ul.list-group
-    each varia in articles
-      li.list-group-item
-        a(href='Variados/'+varia._id)=varia.titulo
+  div.container
+    ul.list-group
+      each varia in articles
+        li.list-group-item
+          a(href='Variados/'+varia._id)=varia.titulo

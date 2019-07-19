@@ -1,6 +1,8 @@
 extends layout.pug
 block content
-  ul.list-group
-    each fisica in articles
-      li.list-group-item
-        a(href='Fisica/'+fisica._id)=fisica.titulo
+
+  div.container
+    ul.list-group
+      each fisica in articles
+        li.list-group-item
+          a(href='Fisica/'+fisica._id)=fisica.titulo

@@ -1,26 +1,30 @@
 extends layout.pug
 block content
   form(method='POST', action='/edit/'+article.id)
-    #form-group
-      label Title:
-      input.form-control(name='titulo', type='text', value=article.titulo)
-      br
-    #form-group
-      label Theme:
-      input.form-control(name='tema', type='text', value=article.tema)
-      br
-    #form-group
-      label Author:
-      input.form-control(name='autor', type='text', value=article.autor)
-      br
-    #form-group
-      label Body:
-      textarea.form-control(name='cuerpo')= article.cuerpo
-      br
-    #form-group
-      label Bibliography:
-      input.form-control(name='bibliografia', type='text', value=article.bibliografia)
-      br
-    input.btn.btn-success(type='submit', value='submit')
-    a.btn.btn-danger.delete-article(href='#',data-id= article._id) Delete
-    a.btn.btn-primary(href='/index') Back
+    div.container
+      #form-group
+        label Title:
+        input.form-control(name='titulo', type='text', value=article.titulo)
+        br
+      #form-group
+        label Theme:
+        input.form-control(name='tema', type='text', value=article.tema)
+        br
+      #form-group
+        label Author:
+        input.form-control(name='autor', type='text', value=article.autor)
+        br
+      #form-group
+        label Body:
+        textarea.form-control(name='cuerpo')= article.cuerpo
+        br
+      #form-group
+        label Bibliography:
+        input.form-control(name='bibliografia', type='text', value=article.bibliografia)
+        br
+      div.boton
+        input.btn.btn-success(type='submit', value='Submit')
+      div.boton
+        a.btn.btn-danger.delete-article(href='#',data-id= article._id) Delete
+      div.boton
+        a.btn.btn-primary(href='/index') Back

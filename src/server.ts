@@ -21,6 +21,8 @@ const passport = require('passport');
 let Article = require('../models/article');
 let Users = require('../models/user');
 const config = require('../config/database');
+//ES6 Promise
+
 mongoose.connect(config.database, { useNewUrlParser: true });
 var db = mongoose.connection;
 var PORT = 8080;

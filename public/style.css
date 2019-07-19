@@ -1,4 +1,3 @@
-
 li a:hover {
   background-color: rgb(58, 69, 219);
 }
@@ -33,4 +32,63 @@ img{
   margin-left: auto;
   margin-right: auto;
   width: 250px;
+}
+
+#form-group{
+  max-width: 100%;
+  margin: auto;
+}
+
+div.container{
+  margin-top: 30px;
+}
+
+.btn{
+  align-content: center;
+  max-width: 90%;
+}
+
+div.boton{
+  display: inline;
+  margin-right: 20px;
+  padding-bottom: 20px;
+}
+
+textarea.form-control{
+  resize: none;
+  height: 100px!important
+}
+
+h3{
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.articles{
+  margin: 0px;
+  padding: 0px;
+}
+
+div.style{
+  border-bottom: double;
+  margin-bottom: 20px;
+}
+
+li.nav-item.active{
+  text-align: center;
+  margin: auto;
+}
+
+a.nav-link{
+  align-items: center;
+}
+
+/*MEDIA QUERY*/
+
+/*LAYOUT*/
+@media only screen and (max-width: 767px) {
+  li.nav-item.active {
+    margin: 0px;
+  }
 }
