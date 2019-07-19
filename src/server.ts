@@ -68,6 +68,8 @@ app.use(expressValidator({
         };
     }
 }));
+
+//passport configuration
 require('../config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -75,24 +77,13 @@ app.get('*', function (req:any, res:any, next:any) {
     res.locals.user = req.user || null;
     next();
 });
-//Pagina de inicio
-app.get('/', function (req:any, res:any) {
-    Article.find({}, function (err:any, article:any) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.render('index', { title: 'index', logeado: false, article: article });
-        }
-    });
-});
-
-//https
 
 
+///LIST OF THE ROUTES
 
-
-
+//Route to home
+var home  = require('../routes/index');
+app.use('/', home);
 //Route para la pagina index
 var index = require('../routes/index');
 app.use('/index', index);
@@ -102,17 +93,7 @@ app.use('/Astronomia', astronomia);
 //Route para la pagina Fisica
 var fisica = require('../routes/Fisica');
 app.use('/Fisica', fisica);
-// app.get('/Fisica', function (req,res) {
-// Article.find({}, function (err, articles){
-// if(err){
-// console.log(err);
-// }
-// else {
-// res.render('Fisica', {title : 'Fisica', logeado: false, titulos: articles});
-// }
-// });
-// })
-//Route para la pagina matematica
+//Route to math page
 var matematica = require('../routes/Matematica');
 app.use('/Matematica', matematica);
 //Route para la pagina login
@@ -132,5 +113,7 @@ var favo = require('../routes/Favoritos');
 app.use('/Favoritos', favo);
 var annadir = require('../routes/agregarFav');
 app.use('/agregarFav', annadir);
+
+
 
 app.listen(PORT);
