@@ -1,7 +1,7 @@
 "use strict";
 const express = require('express');
 import https = require('https');
-  const app = express();
+const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
@@ -21,8 +21,8 @@ const passport = require('passport');
 let Article = require('../models/article');
 let Users = require('../models/user');
 const config = require('../config/database');
-//ES6 Promise
 
+//conection to mongoDB
 mongoose.connect(config.database, { useNewUrlParser: true });
 var db = mongoose.connection;
 var PORT = 8080;
@@ -32,8 +32,10 @@ app.use(express.static(path.join(__dirname, '/../public')));
 app.set('views', path.join(__dirname, '/../views'));
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
 //error handle and check if conection was made
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -48,12 +50,14 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
 // Express Messages Middleware
 app.use(require('connect-flash')());
 app.use(function (req:any, res:any, next:any) {
     res.locals.messages = require('express-messages')(req, res);
     next();
 });
+
 // Express Validator Middleware
 app.use(expressValidator({
     errorFormatter: function (param:any, msg:any, value:any) {

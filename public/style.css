@@ -40,7 +40,14 @@ img{
 }
 
 div.container{
-  margin-top: 30px;
+  margin: 30px auto 0px auto;
+  max-width: 95%;
+}
+
+div.logregister{
+  margin-top:30px;
+  max-width: 85%;
+  margin: auto;
 }
 
 .btn{
@@ -82,6 +89,11 @@ li.nav-item.active{
 
 a.nav-link{
   align-items: center;
+}
+
+input,
+textarea{
+  border: 1px solid black!important;
 }
 
 /*MEDIA QUERY*/

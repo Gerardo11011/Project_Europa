@@ -36,7 +36,7 @@ mongoose.Promise = global.Promise;
       })
     });
 
-    describe ('registrar', function(){
+    describe ('registrar erroneamente', function(){
       it('se deberia de registrar un usuario', function(){
         var registrado = new Usuario({
            nombre: 'Gerardo',
@@ -46,7 +46,9 @@ mongoose.Promise = global.Promise;
          });
 
          registrado.save().then(function(err){
-           if (err) done(err);
+           if (err) {
+             should.fail("one o more fields are required");
+           }
            else {
              assert(registrado.isNew === false);
            }

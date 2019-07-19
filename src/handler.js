@@ -84,7 +84,7 @@ module.exports = {
      let errors = req.validationErrors();
 
      if(errors){
-       res.render('Agregar', {title : 'Agregar', logeado: false, errors: errors})
+       res.render('Agregar', {title : 'Agregar', logeado: true, errors: errors})
      }
      else {
        let art = new article();
@@ -97,7 +97,7 @@ module.exports = {
        art.save(function(err){
          if(err){
            console.log(err);
-           return;
+           return err;
          }
          else {
            req.flash('success','Articulo añadido');
